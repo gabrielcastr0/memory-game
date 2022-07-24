@@ -10,16 +10,12 @@ export const WrapperText = styled.div`
 export const Label = styled.span`
   font-size: 1.875rem;
   color: #fff;
+  text-shadow: 2px 2px 10px #000;
 `;
 
 export const Value = styled.span`
   font-size: 2rem;
   color: #fff;
   font-weight: 700;
-`;
-
-export const Button = styled.button`
-  height: 40px;
-  background: #000;
-  width: 100%;
+  text-shadow: 2px 2px 10px #000;
 `;

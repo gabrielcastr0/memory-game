@@ -26,6 +26,48 @@ const GameArea = () => {
     return () => clearInterval(timer);
   }, [playing, timeElapsed]);
 
+  // verify if opened are equal
+  useEffect(() => {
+    if(shownCount === 2){
+      let opened = gridItems.filter(item => item.shown === true);
+      if(opened.length === 2){
+        if(opened[0].item === opened[1].item){
+          // if both are equal, make every "shown" permanent
+          let tmpGrid = [...gridItems];
+          for(let i in tmpGrid){
+            if(tmpGrid[i].shown){
+              tmpGrid[i].permanentShown = true;
+              tmpGrid[i].shown = false;
+            }
+          }
+
+          setGridItems(tmpGrid);
+          setShownCount(0);
+        }else{
+          // if they are NOT equal, close all "shown"
+          setTimeout(()=>{
+            let tmpGrid = [...gridItems];
+            for(let i in tmpGrid){
+              tmpGrid[i].shown = false;
+            }
+
+            setGridItems(tmpGrid);
+            setShownCount(0);
+          }, 1000);
+        }
+
+        setTurns(turns => turns + 1);
+      }
+    }
+  }, [shownCount, gridItems]);
+
+  // verify if all items are equal
+  useEffect(()=>{
+    if(turns > 0 && gridItems.every(item => item.permanentShown)){
+      setPlaying(false);
+    }
+  }, [turns, gridItems]);
+
   const resetAndCreateGrid = () => {
     // resetting
     setTimeElapsed(0);
@@ -61,11 +103,24 @@ const GameArea = () => {
     setPlaying(true);
   }
 
+  const handleItemClick = (index: number) => {
+    if(playing && index !== null && shownCount < 2){
+      let tmpGrid = [...gridItems];
+
+      if(tmpGrid[index].permanentShown === false && tmpGrid[index].shown === false){
+        tmpGrid[index].shown = true;
+        setShownCount(shownCount + 1);
+      }
+
+      setGridItems(tmpGrid);
+    }
+  }
+
   return(
     <Styled.Container>
       <Styled.InfoArea>
         <InfoLabel label="Tempo" value={formatTimeElapsed(timeElapsed)}/>
-        <InfoLabel label="Movimentos" value="0"/>
+        <InfoLabel label="Movimentos" value={shownCount.toString()}/>
 
         <Styled.Button onClick={resetAndCreateGrid}>Reiniciar</Styled.Button>
       </Styled.InfoArea>
@@ -73,7 +128,7 @@ const GameArea = () => {
       <Styled.GridArea>
         <Styled.Grid>
           {gridItems.map((item, index) => (
-            <GridItem key={index} item={item}/>
+            <GridItem key={index} item={item} onClick={() => handleItemClick(index)}/>
           ))}
         </Styled.Grid>
       </Styled.GridArea>

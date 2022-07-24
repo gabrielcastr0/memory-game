@@ -5,7 +5,7 @@ import {items} from '../../data/items'
 
 type Props = {
   item: GridTypeItem,
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 const GridItem = ({item, onClick}: Props) => {

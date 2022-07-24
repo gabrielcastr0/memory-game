@@ -15,6 +15,9 @@ import palmeiras from '../assets/logo-teams/palmeiras.svg';
 import redBull from '../assets/logo-teams/red-bull-bragantino.svg';
 import santos from '../assets/logo-teams/santos.svg';
 import saoPaulo from '../assets/logo-teams/sao-paulo-futebol-clube.svg';
+import goias from '../assets/logo-teams/logo-goias-novo-256.svg';
+import coritiba from '../assets/logo-teams/logo-coritiba-256.svg';
+import avai from '../assets/logo-teams/logo-avai-256.svg';
 
 export const items = [
   {name: 'flamengo', icon: flamengo},
@@ -33,5 +36,8 @@ export const items = [
   {name: 'palmeiras', icon: palmeiras},
   {name: 'redBull', icon: redBull},
   {name: 'santos', icon: santos},
-  {name: 'saoPaulo', icon: saoPaulo}
+  {name: 'saoPaulo', icon: saoPaulo},
+  {name: 'goias', icon: goias},
+  {name: 'coritiba', icon: coritiba},
+  {name: 'avai', icon: avai}
 ];

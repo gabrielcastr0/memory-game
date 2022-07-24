@@ -7,7 +7,7 @@ type ContainerProps = {
 export const Container = styled.div<ContainerProps>`
   height: 9.875rem;
   width: 9.875rem;
-  background: ${(props => props.showBackground ? '#98FB98': '#e2e3e3')};
+  background: ${(props => props.showBackground ? 'rgba(255, 255, 255, 0.7)': 'rgba(0, 0, 0, 0.7)')};
   border-radius: 0.625rem;
   padding: 0.9375rem;
   display: flex;
