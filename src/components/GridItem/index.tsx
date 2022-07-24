@@ -1,6 +1,6 @@
 import { GridTypeItem } from '../../types/GridItemType'
 import * as Styled from './styled'
-import campeonatoBrasileiro from '../../assets/logo-teams/campeonato-brasileiro.svg'
+import campeonatoBrasileiro from '../../../public/assets/logo-teams/campeonato-brasileiro.svg'
 import {items} from '../../data/items'
 
 type Props = {

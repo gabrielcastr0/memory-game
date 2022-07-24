@@ -120,7 +120,7 @@ const GameArea = () => {
     <Styled.Container>
       <Styled.InfoArea>
         <InfoLabel label="Tempo" value={formatTimeElapsed(timeElapsed)}/>
-        <InfoLabel label="Movimentos" value={shownCount.toString()}/>
+        <InfoLabel label="Movimentos" value={turns.toString()}/>
 
         <Styled.Button onClick={resetAndCreateGrid}>Reiniciar</Styled.Button>
       </Styled.InfoArea>
