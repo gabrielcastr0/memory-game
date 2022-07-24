@@ -5,7 +5,13 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     background: #41295a;
+    height: 100vh;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  main{
     display: flex;
-    flex-direction: space-between;
+    justify-content: space-between;
+    flex-direction: column;
   }
 `
