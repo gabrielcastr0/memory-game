@@ -5,7 +5,7 @@ export const Container = styled.header`
   justify-content: center;
   align-items: center;
   height: 5rem;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   top: 0;
 `;
 

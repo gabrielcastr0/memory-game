@@ -13,9 +13,9 @@ const GameArea = () => {
   const [turns, setTurns] = useState<number>(0);
   const [shownCount, setShownCount] = useState<number>(0);
 
-  useEffect(()=>{
+  const handleClickStart = () => {
     resetAndCreateGrid();
-  }, []);
+  }
 
   useEffect(()=>{
     const timer = setInterval(() => {
@@ -118,11 +118,14 @@ const GameArea = () => {
 
   return(
     <Styled.Container>
-      <Styled.InfoArea>
+      <Styled.InfoArea hasBegun={playing}>
         <InfoLabel label="Tempo" value={formatTimeElapsed(timeElapsed)}/>
         <InfoLabel label="Movimentos" value={turns.toString()}/>
 
-        <Styled.Button onClick={resetAndCreateGrid}>Reiniciar</Styled.Button>
+        <Styled.ButtonsArea>
+          <Styled.Button onClick={handleClickStart}>Iniciar</Styled.Button>
+          <Styled.Button onClick={resetAndCreateGrid}>Reiniciar</Styled.Button>
+        </Styled.ButtonsArea>
       </Styled.InfoArea>
 
       <Styled.GridArea>

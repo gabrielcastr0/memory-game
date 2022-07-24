@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type InfoProps = {
+  hasBegun: boolean;
+}
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -7,22 +11,28 @@ export const Container = styled.div`
   padding: 1.25rem;
 `;
 
-export const InfoArea = styled.div`
+export const InfoArea = styled.div<InfoProps>`
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: ${(props) => props.hasBegun ? 'flex-start' : 'center'};
   align-items: center;
   padding: 1.25rem 0;
+`;
+
+export const ButtonsArea = styled.div`
+  display: flex;
+  gap: 0.625rem;
 `;
 
 export const Button = styled.button`
   margin-top: 0.625rem;
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
-  height: 40px;
-  width: 120px;
+  height: 2.5rem;
+  width: 6.25rem;
   border-radius: 0.3125rem;
-  font-size: 18px;
+  font-size: 1.125rem;
   cursor: pointer;
   border: none;
 
@@ -40,7 +50,7 @@ export const GridArea = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  gap: 0.625rem;
 
   @media (max-width: 768px){
     grid-template-columns: repeat(3, 1fr);
